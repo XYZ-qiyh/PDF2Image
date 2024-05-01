@@ -2,7 +2,7 @@
 
 简易版pdf2image:
 
-+ 使用pdf2image模块 (converts a PDF to a PIL object)
++ 使用[pdf2image](https://pypi.org/project/pdf2image/)模块 (converts a PDF to a PIL object)
 + 将转换结果保存至【以当前为后缀的】文件夹中
 + 图片格式为000~999为索引的png格式图片（可自行修改）
 
@@ -17,6 +17,8 @@ if(len(images) > 0):
 		image_name = os.path.join(output_dir, "{:0>3}.png".format(i))
 		img.save(image_name, format='PNG')
 ```
+
+How to run: `python pdf2image_gui.py`
 
 
 
