@@ -22,4 +22,6 @@ How to run: `python pdf2image_gui.py`
 
 
 
-参考资料：[Convert PDF to Image using Python - GeeksforGeeks](https://www.geeksforgeeks.org/convert-pdf-to-image-using-python/)
+参考资料：
++ [Convert PDF to Image using Python - GeeksforGeeks](https://www.geeksforgeeks.org/convert-pdf-to-image-using-python/)
++ [Python Tkinter Tutorial - GeeksforGeeks](https://www.geeksforgeeks.org/python-tkinter-tutorial/)

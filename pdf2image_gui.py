@@ -3,6 +3,7 @@ import time
 from pdf2image import convert_from_path
 from tkinter import *
 from tkinter import messagebox
+from tkinter import filedialog
 
 def pdf2img():
     try:
@@ -26,14 +27,40 @@ def pdf2img():
         messagebox.showinfo("Result", Result)
 
 
+def select_file():
+    filetypes = (
+        ('text files', '*.pdf'),
+    )
+
+    filename = filedialog.askopenfilename(
+        title='Open PDF File',
+        initialdir='/',
+        filetypes=filetypes)
+
+    messagebox.showinfo(
+        title='Selected File',
+        message=filename
+    )
+
+    e1.insert(0, filename)
+
+
 if __name__ == "__main__":
     master = Tk()
+    master.title('PDF2image')
     Label(master, text="File Location").grid(row=0, sticky=W) 
 
     e1 = Entry(master)
     e1.grid(row=0, column=1)
 
+    open_button = Button(
+        master,
+        text='Load File',
+        command=select_file
+    )
+    open_button.grid(row=0, column=2)
+
     b = Button(master, text="Convert", command=pdf2img)
-    b.grid(row=0, column=2,columnspan=2, rowspan=2,padx=5, pady=5)
+    b.grid(row=0, column=3, padx=5, pady=5)
 
     mainloop()
