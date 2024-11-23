@@ -7,7 +7,8 @@ from tkinter import filedialog
 
 def pdf2img():
     try:
-        images = convert_from_path(str(e1.get()))
+        selected_pdf_file = str(e1.get())
+        images = convert_from_path(selected_pdf_file)
         if(len(images) > 0):
             cur_time = time.strftime("%Y%m%d_%H%M%S", time.localtime(time.time()))
             # print(cur_time)
@@ -37,11 +38,12 @@ def select_file():
         initialdir='/',
         filetypes=filetypes)
 
-    messagebox.showinfo(
-        title='Selected File',
-        message=filename
-    )
-
+    # messagebox.showinfo(
+    #     title='Selected File',
+    #     message=filename
+    # )
+    print("selected file: {}".format(filename))
+    e1.delete(0, END)
     e1.insert(0, filename)
 
 
@@ -60,7 +62,11 @@ if __name__ == "__main__":
     )
     open_button.grid(row=0, column=2)
 
-    b = Button(master, text="Convert", command=pdf2img)
-    b.grid(row=0, column=3, padx=5, pady=5)
+    convert_button = Button(
+        master,
+        text="Convert",
+        command=pdf2img
+    )
+    convert_button.grid(row=0, column=3, padx=5, pady=5)
 
     mainloop()
